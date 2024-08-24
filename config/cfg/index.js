@@ -5,17 +5,17 @@ import { test } from './config.testing.js';
 
 const env = process.env.NODE_ENV || 'development';
 
-let config;
+let cfg;
 
 switch (env) {
   case 'production':
-    config = production;
+    cfg = production;
     break;
   case 'test':
-    config = test;
+    cfg = test;
     break;
   default:
-    config = development;
+    cfg = development;
 }
 
-export default config;
+export default cfg;
