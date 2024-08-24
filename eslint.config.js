@@ -21,6 +21,7 @@ export default [
     rules: {
       quotes: ['error', 'single'],
       'prettier/prettier': ['error', { singleQuote: true }],
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
 ];

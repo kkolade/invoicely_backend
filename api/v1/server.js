@@ -14,10 +14,10 @@ import cfg from '../../config/cfg/index.js';
 // import routes
 
 // Import error handlers
-// import {
-//   respondNoResourceFound,
-//   respondServerError,
-// } from './api/v1/middleware/errorMiddleware.js';
+import {
+  respondNoResourceFound,
+  respondServerError,
+} from './middleware/errorMiddleware.js';
 
 const app = express();
 
@@ -34,7 +34,7 @@ app.use(logger('dev'));
 // Routes
 
 // Error Handler
-// app.use(respondNoResourceFound);
-// app.use(respondServerError);
+app.use(respondNoResourceFound);
+app.use(respondServerError);
 
 export default app;
