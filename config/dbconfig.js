@@ -15,7 +15,7 @@ const connectDB = async () => {
     });
     console.log(
       chalk.yellow(`       MongoDB Connected: ${connect.connection.host}`) +
-        '\n\\*/---------------_*oOo*_---------------\\*/',
+        '\n\\*/---------------_*o💚o*_---------------\\*/',
     );
   } catch (error) {
     console.error(chalk.red('MongoDB connection error:', error));
