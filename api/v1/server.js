@@ -1,4 +1,3 @@
-import 'module-alias/register';
 // Node core modules
 
 // Express
@@ -10,7 +9,7 @@ import cors from 'cors';
 import logger from 'morgan';
 
 // Other imports
-import cfg from '@config/cfg/index.js';
+import cfg from '../../config/cfg/index.js';
 
 // import routes
 

@@ -1,5 +1,5 @@
 // config/test.mjs
-import { common } from './config.common';
+import { common } from './config.common.js';
 
 export const test = {
   env: 'test',

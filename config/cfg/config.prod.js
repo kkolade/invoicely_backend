@@ -1,5 +1,5 @@
 // config/production.mjs
-import { common } from './config.common';
+import { common } from './config.common.js';
 
 export const production = {
   env: 'production',

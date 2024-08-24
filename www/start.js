@@ -1,6 +1,6 @@
-import app from '@api/server.js';
-import cfg from '@config/cfg/index.js';
-import connectDB from '@config/dbconfig.js';
+import app from '../api/v1/server.js';
+import cfg from '../config/cfg/index.js';
+import connectDB from '../config/dbconfig.js';
 
 import chalk from 'chalk';
 
