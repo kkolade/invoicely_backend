@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node ./www/start.js",
     "dev": "nodemon ./www/start.js",
-    "test": "vitest",
+    "test": "vitest --run",
     "lint": "npm run lint:js && npm run lint:prettier",
     "lint:js": "eslint \"**/*.{js,jsx}\"",
     "lint:prettier": "prettier --check \"**/*.{js,jsx,json,md}\"",
