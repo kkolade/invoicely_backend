@@ -3,8 +3,8 @@
     "baseUrl": "./", // Set the base URL for resolving paths.
     "paths": {
       "@api/*": ["api/v1/*"],
-      "@config": ["config/"],
-      "@www*": ["www/"]
+      "@config/*": ["config/*"],
+      "@www/*": ["www/*"]
     }
   },
   "exclude": ["node_modules"] // Exclude node_modules.

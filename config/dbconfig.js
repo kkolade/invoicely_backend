@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import mongoose from 'mongoose';
 
-import cfg from './cfg/index.js';
+import cfg from '@config/cfg/index.js';
 const MONGO_URI = cfg.db.url;
 
 const connectDB = async () => {
