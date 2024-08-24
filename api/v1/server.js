@@ -12,6 +12,7 @@ import logger from 'morgan';
 import cfg from '../../config/cfg/index.js';
 
 // import routes
+import indexRoute from './routes/indexRoute.js';
 
 // Import error handlers
 import {
@@ -32,6 +33,7 @@ app.use(compression());
 app.use(logger('dev'));
 
 // Routes
+app.use('/', indexRoute);
 
 // Error Handler
 app.use(respondNoResourceFound);
