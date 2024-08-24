@@ -12,6 +12,7 @@ import logger from 'morgan';
 import cfg from '../../config/cfg/index.js';
 
 // import routes
+import authRoute from './routes/authRoute.js';
 import indexRoute from './routes/indexRoute.js';
 
 // Import error handlers
@@ -34,6 +35,7 @@ app.use(logger('dev'));
 
 // Routes
 app.use('/', indexRoute);
+app.use('/', authRoute);
 
 // Error Handler
 app.use(respondNoResourceFound);

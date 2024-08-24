@@ -1,3 +1,29 @@
-# indexRoute
+# **env**
+@hostname = http://localhost:5000
+@api-endpoints = http://localhost:5000/api/v1
 
-GET 'http://localhost:5000/'
+# **index endpoint**
+
+# Homepage
+GET {{hostname}}
+
+###
+
+# Dashboard
+GET {{hostname}}/dashboard
+
+###
+
+# **Auth Endpoint**
+
+# signup
+POST {{hostname}}/signup
+
+###
+# Login
+POST {{hostname}}/login
+
+###
+
+# logout
+POST {{hostname}}/logout
