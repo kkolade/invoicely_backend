@@ -11,7 +11,7 @@ const signup = asyncHandler(async (req, res) => {
   const signupValidationErrors = validationResult(req);
   if (!signupValidationErrors.isEmpty()) {
     const errors = signupValidationErrors.array().map((error) => error.msg);
-    return res.status(400).json({ errors }); // Send errors as a JSON response
+    return res.status(400).json({ errors, userInput: { username, email } }); // Send errors as a JSON response
   }
 
   // check if user exist
@@ -21,6 +21,7 @@ const signup = asyncHandler(async (req, res) => {
   if (existUser) {
     res.json({
       message: 'User already exist!',
+      userInput: { username, email },
       success: false,
     });
   } else {

@@ -6,7 +6,6 @@ import express from 'express';
 // Dependencies modules
 import compression from 'compression';
 import cors from 'cors';
-import flash from 'express-flash';
 import session from 'express-session';
 import logger from 'morgan';
 
@@ -41,7 +40,6 @@ app.use(
     resave: false,
   }),
 );
-app.use(flash());
 app.use(logger('dev'));
 
 // Routes

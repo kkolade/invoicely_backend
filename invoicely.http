@@ -21,7 +21,7 @@ POST {{hostname}}/signup
 Content-Type: application/json
 
 {
-  "username": "honeygirl",
+  "username": "",
   "email": "honeygirl2@gmail.com",
   "password": "asirii",
   "repeatPassword": "asirii"
