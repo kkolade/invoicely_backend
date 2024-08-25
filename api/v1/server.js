@@ -26,7 +26,6 @@ const app = express();
 
 // Static Files
 app.use(express.static(cfg.dir.static));
-console.log(cfg);
 
 // Middleware
 app.use(cors());

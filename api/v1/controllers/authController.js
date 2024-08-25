@@ -1,9 +1,11 @@
 import asyncHandler from 'express-async-handler';
-import { validationResult } from 'express-validator';
 
-import { hashPassword } from '../helpers/authHelper.js';
 import User from '../models/userModel.js';
 
+import { validationResult } from 'express-validator';
+import { comparePassword, hashPassword } from '../helpers/authHelper.js';
+
+// Register User
 const signup = asyncHandler(async (req, res) => {
   const { username, email, password, repeatPassword } = req.body;
 
@@ -11,7 +13,7 @@ const signup = asyncHandler(async (req, res) => {
   const signupValidationErrors = validationResult(req);
   if (!signupValidationErrors.isEmpty()) {
     const errors = signupValidationErrors.array().map((error) => error.msg);
-    return res.status(400).json({ errors, userInput: { username, email } }); // Send errors as a JSON response
+    return res.status(400).json({ errors, userInput: { username, email } });
   }
 
   // check if user exist
@@ -20,7 +22,7 @@ const signup = asyncHandler(async (req, res) => {
 
   if (existUser) {
     res.json({
-      message: 'User already exist!',
+      message: 'Email is already registered. Try to login instead',
       userInput: { username, email },
       success: false,
     });
@@ -40,10 +42,38 @@ const signup = asyncHandler(async (req, res) => {
   }
 });
 
+// User login
 const login = asyncHandler(async (req, res) => {
-  res.json({
-    message: 'Logged in',
-  });
+  const { username, email, password } = req.body;
+
+  // validate user input
+  const loginValidationErrors = validationResult(req);
+
+  if (!loginValidationErrors.isEmpty()) {
+    const errors = loginValidationErrors.array().map((error) => error.msg);
+    return res.status(400).json({ errors, userInput: { username, email } });
+  }
+
+  // check if user exist
+  const existUser =
+    (await User.findOne({ username })) || (await User.findOne({ email }));
+
+  if (!existUser) {
+    res.status(400).json({
+      message: 'Invalid input',
+      userInput: { username, email },
+      success: false,
+    });
+  } else {
+    const passwordIsValid = comparePassword(password, existUser.password);
+    if (passwordIsValid) {
+      req.session.userId = existUser._id;
+      res.status(200).json({
+        message: 'Logged in',
+        success: true,
+      });
+    }
+  }
 });
 
 const logout = asyncHandler(async (req, res) => {

@@ -30,6 +30,12 @@ Content-Type: application/json
 ###
 # Login
 POST {{hostname}}/login
+Content-Type: application/json
+
+{
+  "email": "honeygirl@gmail.com",
+  "password": ""
+}
 
 ###
 
