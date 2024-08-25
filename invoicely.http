@@ -18,6 +18,14 @@ GET {{hostname}}/dashboard
 
 # signup
 POST {{hostname}}/signup
+Content-Type: application/json
+
+{
+  "username": "honeygirl",
+  "email": "honeygirl2@gmail.com",
+  "password": "asirii",
+  "repeatPassword": "asirii"
+}
 
 ###
 # Login

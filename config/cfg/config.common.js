@@ -21,5 +21,6 @@ export const common = {
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
   },
+  secret: process.env.AUTH_SECRET,
   port: process.env.PORT,
 };

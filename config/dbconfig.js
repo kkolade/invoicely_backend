@@ -10,7 +10,7 @@ const connectDB = async () => {
       throw new Error('MONGODB_URI is missing!');
     }
     const connect = await mongoose.connect(MONGO_URI, {
-      dbName: 'invoicely_app_db',
+      dbName: cfg.db.database,
       bufferCommands: false,
     });
     console.log(
